@@ -8,18 +8,18 @@ module RubySokmil
     DEFAULT_AFFILIATE_ID = "20131-001".freeze
 
     def initialize(options = {})
-      @api_key      = (ENV["SOKMIL_API_ID"]       || options[:api_key])
-      @affiliate_id = (ENV["SOKMIL_AFFILIATE_ID"] || options[:affiliate_id]  || DEFAULT_AFFILIATE_ID)
+      @api_key      = (ENV["SOKMIL_API_ID"] || options[:api_key])
+      @affiliate_id = (ENV["SOKMIL_AFFILIATE_ID"] || options[:affiliate_id] || DEFAULT_AFFILIATE_ID)
     end
 
     API_MAP = {
-      item:     'Item',      # 商品検索
-      maker:    'Maker',     # メーカー検索
-      label:    'Label',     # レーベル検索
-      series:   'Series',    # シリーズ検索
-      genre:    'Genre',     # ジャンル検索
-      director: 'Director',  # 監督検索
-      actor:    'Actor',     # 出演者検索
+      item: "Item",           # 商品検索
+      maker: "Maker",         # メーカー検索
+      label: "Label",         # レーベル検索
+      series: "Series",       # シリーズ検索
+      genre: "Genre",         # ジャンル検索
+      director: "Director",   # 監督検索
+      actor: "Actor"          # 出演者検索
     }.freeze
 
     API_MAP.each do |method, path|

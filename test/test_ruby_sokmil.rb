@@ -9,7 +9,7 @@ class TestRubySokmil < Minitest::Test
 
   def test_search_item
     puts __method__
-    args = {keyword: "天使もえ"}
+    args = { keyword: "天使もえ" }
     result = test(:item, args)
     if result
       result[:items].each do |i|
@@ -88,15 +88,13 @@ class TestRubySokmil < Minitest::Test
   end
 
   private
+
   def test(method, args = {})
     cli = RubySokmil.new
-    args.store(:category, 'av')
+    args.store(:category, "av")
     response = cli.send(method, args)
-    if response.body[:result][:status] == '200'
-      return response.body[:result]
-    else
-      puts "Status : #{response.body[:result][:status]} : #{response.body[:result][:message]}"
-      return nil
-    end
+    return response.body[:result] if response.body[:result][:status] == "200"
+
+    puts "Status : #{response.body[:result][:status]} : #{response.body[:result][:message]}"
   end
 end
