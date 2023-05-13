@@ -19,7 +19,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ## Usage
 
 ```ruby
-cli = RubySokmil.new(app_key: "YOUR_APP_KEY", affiliate_id: "YOUR_AFFILIATE_ID")
+cli = RubySokmil.new(api_key: "YOUR_API_KEY", affiliate_id: "YOUR_AFFILIATE_ID")
 response = cli.item(keyword: "杉原杏璃", category: 'idol')
 response.body[:result][:items].map {|x| x[:title]}
 =>
